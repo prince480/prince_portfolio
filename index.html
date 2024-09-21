@@ -337,11 +337,9 @@
                             <h1 class="text-white font-weight-bold">Subscribe My Newsletter</h1>
                             <p class="text-white">Subscribe and get my latest article in your inbox</p>
                             <div class="position-relative w-100">
-                                <input class="form-control bg-dark border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-                               
-				    <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2" onclick="window.open('https://api.whatsapp.com/send?phone=919003845516&text=Hello%20there!', '_blank');">
-								Send
-							</button>
+                                <input class="form-control bg-dark border-0 w-100 py-3 ps-4 pe-5 text-white" id="messageInput" type="text" placeholder="Message">
+    
+				<button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2" onclick="sendMessage()">Send</button>
                             </div>
                         </div>
                     </section>
@@ -571,5 +569,18 @@
 
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
+
+<script>
+    function sendMessage() {
+        const message = document.getElementById('messageInput').value;
+        const encodedMessage = encodeURIComponent(message);  // Encode the message for URL
+        const phoneNumber = '919003845516';  // Your WhatsApp number
+        const whatsappURL = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
+        
+        // Open WhatsApp with the message
+        window.open(whatsappURL, '_blank');
+    }
+</script>
+	    
     </body>
 </html>
